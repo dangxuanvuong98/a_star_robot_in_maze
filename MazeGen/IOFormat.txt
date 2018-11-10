@@ -1,0 +1,7 @@
+Input: Number of rows, columns, bonuses
+
+Output:
+Line 1: Number of rows(n), columns(m)
+Line 2: Start point
+Line 3: Finish point
+Line 4 to n+3: Matrix includes nxm numbers(bit 0-3 show the wall following URDL, bit 4 shows the bonus)

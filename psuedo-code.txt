@@ -1,0 +1,64 @@
+Các thông số so sánh:
+	- Không gian tìm kiếm trung bình (%)
+	- Lời giải tối ưu? (xác suất thu được lời giải tối ưu? Mức độ tối ưu trung bình)
+
+BFS:
+	- Không gian tìm kiếm: 100%
+	- Lời giải tối ưu: 100%
+
+A* with Manhatan Heuristic;
+	- Không gian tìm kiếm:
+	- Lời giải tối ưu:
+
+A* with Manhatan & Bonus Heuristic:
+	- Không gian tìm kiếm:
+	- Lời giải tối ưu:
+
+A* with Manhatan & sum of remain bonuses heuristic:
+	- Không gian tìm kiếm:
+	- Lời giải tối ưu: 100%
+
+A* with sum of remain bonuses & cost for get each bonus heuristic:
+	cost = Manhatan:	
+		- Không gian tìm kiếm:
+		- Lời giải tối ưu: 100%
+	cost = min path:
+		- Không gian tìm kiếm:
+		- Lời giải tối ưu: 100%
+
+Đánh dấu 1 trạng thái: Toạ độ robot + tình trạng các bonus
+
+Mã giả phần xử lý:
+* BFS:
+	openSet += start
+	while (openSet not empty)
+	{
+		u = openSet.dequeue()
+		closedSet += u
+		if u contains destination
+			res = max(res, u)
+		for k in neighbors of u
+		{
+			if (k not in closedSet)
+			{
+				openSet += k;
+			}
+		}
+	}
+
+* A*
+	openSet += start
+	while (openSet not empty)
+	{
+		u = openSet.dequeue()
+		closedSet += u
+		if u contains destination
+			res = max(res, u)
+		for k in neighbors of u
+		{
+			if (k not in closedSet)
+			{
+				openSet += k
+			}
+		}
+	}

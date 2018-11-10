@@ -1,0 +1,18 @@
+Astar for Robot in Maze Problem
+
+Read_input: Linear
+Không gian trạng thái tối đa: (MxN)x2^B
+Gọi L là số không gian phải xét thực tế ==> L <= (MxN)x2^B
+Mỗi trạng thái:
+	- Lấy trạng thái có ước lượng cao nhất ra khỏi hàng đợi: O(L)??? Hay là O(LxMxN) -> Chắc phải là O(L) chứ, nếu Backend dùng con trỏ. Nếu ko dùng con trỏ thì "Đ c m Python ngu vl :D"
+	- Convert trạng thái sang list: O(2x(mxn+2))
+	- Xét 4 trạng thái lân cận:
+		+ Convert trạng thái sang tuple: O(2x(mxn)+2)
+		+ Đánh giá trạng thái:
+			. O(1) với đánh giá 1
+			. O(mxn) với đánh giá 2, 3
+			. O(?) với đánh giá 4, 5
+		+ Kiểm tra trạng thái trong tập closedSet, openSet và cập nhật: O(mxn)
+		==> Độ phức tạp: O(mxn)
+	==> Độ phức tạp O(L)
+==> Độ phức tạp: O(L^2) với L <= (MxN)x2^B
