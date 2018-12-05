@@ -1,0 +1,2 @@
+E:\Learning Unity\AI Project\Project AI Visualize\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+E:\Learning Unity\AI Project\Project AI Visualize\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache

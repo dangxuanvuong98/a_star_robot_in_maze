@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Bonus
+  - End
+  - Map
+  - Start
+  - Point
   layers:
   - Default
   - TransparentFX
@@ -13,9 +18,9 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
-  - 
-  - 
+  - AI
+  - Map
+  - Bonus
   - 
   - 
   - 
@@ -40,4 +45,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 3145136515
+    locked: 0
+  - name: Text
+    uniqueID: 570114387
+    locked: 0
+  - name: SF
+    uniqueID: 1230872967
+    locked: 0
+  - name: Sample
+    uniqueID: 1762748813
     locked: 0

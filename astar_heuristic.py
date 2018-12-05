@@ -24,7 +24,7 @@ def manhatan_with_bonus_and_cost(size, state, destination, items, walls):
 	bonus_amount = 0
 	for i in range(size[0]):
 		for j in range(size[1]):
-			bonus_amount += max(0, items[i][j] * ((state[1][i] >> j) & 1) - abs(i - state[0][0]) + abs(j - state[0][1]))
+			bonus_amount += max(0, items[i][j] * ((state[1][i] >> j) & 1) - abs(i - state[0][0]) - abs(j - state[0][1]))
 	return bonus_amount - abs(destination[0] - state[0][0]) - abs(destination[1] - state[0][1])
 	pass
 

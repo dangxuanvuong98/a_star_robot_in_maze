@@ -1,5 +1,7 @@
+import time
+starttime = time.time()
 # Lựa chọn hàm đánh giá
-from astar_heuristic import manhatan_with_bonus_and_optimized_cost2 as evaluate
+from astar_heuristic import manhatan_with_all_bonus as evaluate
 
 #Khai báo biến toàn cục (các thông tin input)
 size = []
@@ -8,7 +10,7 @@ destination = []
 walls = []
 items = []
 
-output = open("mov.txt", "w")
+output = open("MazeGen/movement.txt", "w")
 
 # Hàm đọc dữ liệu đầu vào
 def read_input(input_file):
@@ -184,6 +186,4 @@ while (len(stack) > 0):
 
 output.write ('B ' + movement[:-1])
 
-def writeout(s):
-	str = "P " + ' '.join(s[0])
-	# str += 
+print(time.time() - starttime)
