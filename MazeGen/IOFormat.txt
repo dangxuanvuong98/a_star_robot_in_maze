@@ -4,4 +4,5 @@ Output:
 Line 1: Number of rows(n), columns(m)
 Line 2: Start point
 Line 3: Finish point
-Line 4 to n+3: Matrix includes nxm numbers(bit 0-3 show the wall following URDL, bit 4 shows the bonus)
+Line 4 to n+3: Matrix includes nxm numbers(bit 0-3 show the wall following URDL)
+Line n+4 to 2*n+3: Matrix includes nxm numbers showing the value of bonus in each cell
