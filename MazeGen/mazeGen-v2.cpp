@@ -12,6 +12,7 @@ int n, m, q;
 int startX, startY, disX, disY, finishX, finishY;
 int mz[N][N], mk[N][N], mzv[N][N];
 
+//generating random number that under lim
 int get_rd(int pos, int lim)
 {
   int temp, sign;
@@ -23,11 +24,14 @@ int get_rd(int pos, int lim)
   return temp;
 }
 
+//generating maze by depth first search
 void gen_maze(int px, int py)
 {
   do{
+    //choosing random direction
     int dir = rand() % 4;
     if((mk[px][py] & (1<<dir)) == 0) continue;
+    //check direction validation
     if(px + dx[dir] < 1 || px + dx[dir] > n ||
        py + dy[dir] < 1 || py + dy[dir] > m) {
       mk[px][py] &= (15-(1<<dir));
@@ -79,6 +83,7 @@ int main()
   for(int i = 1; i <= n; i++)
     for(int j = 1; j <= m; j++) mz[i][j] = mk[i][j] = 15;
   gen_maze(startX, startY);
+  //generating bonuses
   int cc = 0;
   do{
     int xx = rand() % n + 1;
@@ -90,8 +95,10 @@ int main()
     int value = rand() % (int)(sqrt(n*m)) + 1;
     int sign = rand() % 2;
     if(!sign) value /= 2;
+    if(value == 0) value++;
     mzv[xx][yy] = value * (sign ? 1:-1);
   }while(cc < q);
+  //breaking some wall to make more way
   for(int i = 1; i <= (n*m)/30; i++){
     int xx = rand() % n + 1;
     int yy = rand() % m + 1;
@@ -109,6 +116,7 @@ int main()
       }
     }
   }
+  //print maze
   cout << n << ' ' << m << ' ';
   cout << startX-1 << ' ' << startY-1 << ' ';
   cout << finishX-1 << ' ' << finishY-1 << endl;
