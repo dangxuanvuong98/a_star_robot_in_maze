@@ -39,6 +39,7 @@ void gen_maze(int px, int py)
     }
     int npx = px + dx[dir];
     int npy = py + dy[dir];
+    //if new cell is finish then go any direction
     if(npx == finishX && npy == finishY) {
       mz[px][py] &= (15-wp[dir]);
       mz[npx][npy] &= (15-wp[(dir+2)%4]);
@@ -46,6 +47,8 @@ void gen_maze(int px, int py)
       mk[npx][npy] &= (15-(1<<((dir+2)%4)));
       gen_maze(npx, npy);
     }
+    //check new cell is visited
+    //if no then visit else ignore
     int flag = 0;
     for(int i = 0; i < 4; i++){
       if(i != ((dir+2)%4)){
@@ -55,6 +58,8 @@ void gen_maze(int px, int py)
         }
       }
     }
+    //visit new cell
+    //breaking the wall between new cell and old one
     if(!flag){
       mz[px][py] &= (15-wp[dir]);
       mz[npx][npy] &= (15-wp[(dir+2)%4]);
