@@ -63,7 +63,8 @@ void gen_maze(int px, int py)
 
 int main()
 {
-  freopen("map.txt", "w", stdout);
+  freopen("input.txt", "w", stdout);
+  //freopen("input.txt", "r", stdin);
   srand(time(0));
   //n = rand() % 10 + 5;
   //m = rand() % 10 + 5;
@@ -86,10 +87,28 @@ int main()
        (xx == startX && yy == startY) ||
        (xx == finishX && yy == finishY)) continue;
     cc++;
-    int value = rand() % 100 + 1;
+    int value = rand() % (int)(sqrt(n*m)) + 1;
     int sign = rand() % 2;
+    if(!sign) value /= 2;
     mzv[xx][yy] = value * (sign ? 1:-1);
   }while(cc < q);
+  for(int i = 1; i <= (n*m)/30; i++){
+    int xx = rand() % n + 1;
+    int yy = rand() % m + 1;
+    if(xx == 1) xx++;
+    if(xx == n) xx--;
+    if(yy == 1) yy++;
+    if(yy == m) yy--;
+    for(int j = 0; j < 4; j++){
+      int nx = xx + dx[j];
+      int ny = yy + dy[j];
+      int nj = (j+2)%4;
+      if((mz[xx][yy] & (1<<j)) && (mz[nx][ny] & (1<<nj))){
+        mz[xx][yy] -= (1<<j);
+        mz[nx][ny] -= (1<<nj);
+      }
+    }
+  }
   cout << n << ' ' << m << ' ';
   cout << startX-1 << ' ' << startY-1 << ' ';
   cout << finishX-1 << ' ' << finishY-1 << endl;
