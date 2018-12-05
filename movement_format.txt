@@ -1,0 +1,7 @@
+Gồm L+1 dòng
+L dòng đầu là thông tin các ô mà robot đi qua:
+	- Bắt đầu bằng ký tự P
+	- 2 số tiếp theo là toạ độ ô (hàng, cột) (đánh số từ 0, từ trên -> dưới, từ trái -> phải)
+	- 4 số tiếp theo là ước lượng điểm nếu robot đi lên, phải, xuống, trái. Nếu không thể đi đến ô nào thì chèn ký tự F
+	- M*N số tiếp theo là giá trị bonus ở các ô (trên -> dưới (trái -> phải))
+Dòng cuối cùng gồm L ký tự W, A, D, S ngăn nhau bởi dấu cách <=> robot đi lên, sang trái, sang phải, xuống dưới
