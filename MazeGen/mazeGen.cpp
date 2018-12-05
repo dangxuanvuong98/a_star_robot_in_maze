@@ -83,9 +83,9 @@ int main()
   do{
     int xx = rand() % n + 1;
     int yy = rand() % m + 1;
-    if((mz[xx][yy] & 16) == 1 ||
-       (xx == startX && yy == startY) ||
-       (xx == finishX && yy == finishY)) continue;
+    if((xx == startX && yy == startY)  ||
+       (xx == finishX && yy == finishY)||
+       (mzv[xx][yy] != 0)) continue;
     cc++;
     int value = rand() % (int)(sqrt(n*m)) + 1;
     int sign = rand() % 2;
