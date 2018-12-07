@@ -97,14 +97,14 @@ int main()
        (xx == finishX && yy == finishY)||
        (mzv[xx][yy] != 0)) continue;
     cc++;
-    int value = rand() % (int)(sqrt(n*m)) + 1;
-    int sign = rand() % 2;
-    if(!sign) value /= 2;
+    int value = rand() % (int)(3*sqrt(n*m)) + 1;		//Change limit value of positive items here
+    int sign = rand() % 4;								//Change ratio of positive value and negative value items here
+    if(!sign) value /= 3;								//Change limit of negative value items here
     if(value == 0) value++;
     mzv[xx][yy] = value * (sign ? 1:-1);
   }while(cc < q);
   //breaking some wall to make more way
-  for(int i = 1; i <= (n*m)/30; i++){
+  for(int i = 1; i <= (n*m)/10; i++){					//Change ratio for breaking walls here
     int xx = rand() % n + 1;
     int yy = rand() % m + 1;
     if(xx == 1) xx++;

@@ -1,7 +1,10 @@
 import time
 starttime = time.time()
 # Lựa chọn hàm đánh giá
-from astar_heuristic import manhatan_with_all_bonus as evaluate
+from astar_heuristic import manhatan as evaluate	#Sử dụng phương pháp đánh giá 0
+# from astar_heuristic import manhatan_with_all_bonus as evaluate	#Sử dụng phương pháp đánh giá 1
+# from astar_heuristic import manhatan_with_bonus_and_cost as evaluate	#Sử dụng phương pháp đánh giá 2.0
+# from astar_heuristic import manhatan_with_bonus_and_optimized_cost as evaluate	#Sử dụng phương pháp đánh giá 2.1
 
 #Khai báo biến toàn cục (các thông tin input)
 size = []
@@ -143,15 +146,10 @@ while (0==0):
 				trace[current_state] = state_max
 
 
-		# Nếu trạng thái hiện tại có trong closedSet nhưng giá trị ước lượng vừa tìm được tốt hơn thì lấy trạng thái đó khỏi closedSet và thêm lại vào openSet
+		# Nếu trạng thái hiện tại có trong closedSet ta bỏ qua không xét trạng thái này nữa
 		if (current_state in closedSet):
-			if (current_score[0] > closedSet[current_state][0]):
-				del closedSet[current_state]
-				openSet[current_state] = current_score
-				trace[current_state] = state_max
-			else:
-				pass
-		# Nếu trạng thái hiện tại đã có trong closedSet
+			continue
+		# Nếu trạng thái hiện tại đã có trong openSet
 		# Gán số điểm tốt nhất cho trạng thái này
 		elif (current_state in openSet):
 			if (openSet[current_state][0] < current_score[0]):
@@ -169,6 +167,7 @@ while (0==0):
 
 direct = ["S ", "A ", "W ", "D "]
 movement = ""
+print(result_score)
 stack = [[result_state, result_score]]
 while (trace[result_state] != result_state):
 	result_state = trace[result_state]
@@ -187,3 +186,9 @@ while (len(stack) > 0):
 output.write ('B ' + movement[:-1])
 
 print(time.time() - starttime)
+count = 0
+for i in items:
+	for j in i:
+		if j != 0:
+			count += 1
+print (100 * (2**count))
